@@ -1,0 +1,642 @@
+/* --- VARIABLES DE COLOR Y TIPOGRAFÍA --- */
+:root {
+    --color-principal: #7A8B76; /* Verde Salvia */
+    --color-fondo: #F4F1EA;     /* Arena Suave */
+    --color-texto: #2C302E;     /* Carbón */
+    --color-boton: #C27A62;     /* Terracota */
+    --color-blanco: #ffffff;
+    --fuente-titulos: 'Playfair Display', serif;
+    --fuente-textos: 'Montserrat', sans-serif;
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-textos);
+    color: var(--color-texto);
+    padding-top: 80px; /* Espacio para que el header no tape el contenido futuro */
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+.header {
+    background-color: var(--color-blanco);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Sombra suave elegante */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+    color: var(--color-principal);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-principal);
+}
+
+.btn-reservar {
+    background-color: var(--color-boton);
+    color: var(--color-blanco);
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background-color: #a3614b;
+}
+
+/* --- MENÚ PARA CELULARES --- */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-texto);
+    margin: 5px auto;
+    transition: all 0.3s ease;
+}
+
+/* --- RESPONSIVE DESIGN (Pantallas menores a 768px) --- */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    .desktop-only { display: none; }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%; /* Oculto por defecto */
+        top: 80px;
+        flex-direction: column;
+        background-color: var(--color-blanco);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        padding: 30px 0;
+        gap: 1.5rem;
+    }
+
+    /* Clase que se activa con JavaScript */
+    .nav-menu.active { left: 0; }
+    
+    /* Animación de la hamburguesa a "X" */
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 85vh; 
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* AQUÍ CAMBIAMOS EL ENLACE POR TU IMAGEN LOCAL */
+    background-image: url('img/hero.jpg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(44, 48, 46, 0.4), rgba(44, 48, 46, 0.6));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--color-blanco);
+    padding: 0 20px;
+    margin-bottom: 40px; /* Sube un poco el texto para dar espacio al buscador */
+}
+
+.hero-title {
+    font-family: var(--fuente-titulos);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* --- MOTOR DE RESERVAS PREMIUM --- */
+.booking-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+    transform: translateY(40px); /* Hace flotar la caja un poco fuera de la foto */
+}
+
+.booking-form {
+    background-color: var(--color-blanco);
+    padding: 10px 20px;
+    border-radius: 50px; /* Bordes ovalados estilo Airbnb */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinea todo perfectamente horizontal */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 5px 15px;
+    position: relative; /* ¡CRÍTICO para que el panel no rompa la pantalla! */
+}
+
+.input-group label {
+    font-size: 0.75rem;
+    color: var(--color-texto);
+    font-weight: 700;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.input-group input, 
+.input-group select,
+.huespedes-display {
+    border: none;
+    background: transparent;
+    font-family: var(--fuente-textos);
+    font-size: 0.95rem;
+    color: #444;
+    cursor: pointer;
+    padding: 5px 0;
+    outline: none;
+}
+.divisor {
+    width: 1px;
+    height: 40px;
+    background-color: #e5e5e5;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    outline: none;
+    border-color: var(--color-principal);
+    background-color: var(--color-blanco);
+}
+
+.btn-buscar {
+    background-color: var(--color-boton);
+    color: var(--color-blanco);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: var(--fuente-textos);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-buscar:hover {
+    background-color: #a3614b;
+}
+
+/* --- PANEL FLOTANTE DE HUÉSPEDES --- */
+.panel-huespedes {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 15px;
+    background: var(--color-blanco);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    z-index: 100;
+    display: none; /* Inicia oculto */
+    flex-direction: column;
+    gap: 15px;
+    cursor: default;
+}
+
+/* JS pondrá esta clase para mostrarlo */
+.panel-huespedes.mostrar {
+    display: flex;
+}
+
+.fila-huespedes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.h-tipo { font-weight: 600; color: var(--color-texto); margin-bottom: 2px;}
+.h-edad { font-size: 0.8rem; color: #777; }
+
+.huesped-controles {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-ctrl {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background: var(--color-blanco);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+    display: flex; justify-content: center; align-items: center;
+    transition: border-color 0.2s;
+}
+
+.btn-ctrl:hover { border-color: var(--color-texto); }
+.h-cant { width: 15px; text-align: center; font-weight: 600;}
+
+.btn-cerrar-panel {
+    background: var(--color-texto); color: var(--color-blanco);
+    border: none; padding: 10px; border-radius: 8px; cursor: pointer;
+    font-weight: 600; margin-top: 5px;
+}
+
+/* --- RESPONSIVE DEL BUSCADOR (Móviles) --- */
+@media (max-width: 850px) {
+    .booking-form {
+        flex-direction: column;
+        border-radius: 15px;
+        padding: 20px;
+        gap: 15px;
+    }
+    .divisor { display: none; }
+    .input-group, .btn-buscar { width: 100%; }
+    .btn-buscar { border-radius: 8px; }
+    .panel-huespedes { width: 100%; top: auto; position: static; box-shadow: none; padding: 10px 0;}
+}/* --- PANEL FLOTANTE DE HUÉSPEDES --- */
+.panel-huespedes {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 15px;
+    background: var(--color-blanco);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    z-index: 100;
+    display: none; /* Inicia oculto */
+    flex-direction: column;
+    gap: 15px;
+    cursor: default;
+}
+
+/* JS pondrá esta clase para mostrarlo */
+.panel-huespedes.mostrar {
+    display: flex;
+}
+
+.fila-huespedes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.h-tipo { font-weight: 600; color: var(--color-texto); margin-bottom: 2px;}
+.h-edad { font-size: 0.8rem; color: #777; }
+
+.huesped-controles {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-ctrl {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background: var(--color-blanco);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+    display: flex; justify-content: center; align-items: center;
+    transition: border-color 0.2s;
+}
+
+.btn-ctrl:hover { border-color: var(--color-texto); }
+.h-cant { width: 15px; text-align: center; font-weight: 600;}
+
+.btn-cerrar-panel {
+    background: var(--color-texto); color: var(--color-blanco);
+    border: none; padding: 10px; border-radius: 8px; cursor: pointer;
+    font-weight: 600; margin-top: 5px;
+}
+
+/* --- RESPONSIVE DEL BUSCADOR (Móviles) --- */
+@media (max-width: 850px) {
+    .booking-form {
+        flex-direction: column;
+        border-radius: 15px;
+        padding: 20px;
+        gap: 15px;
+    }
+    .divisor { display: none; }
+    .input-group, .btn-buscar { width: 100%; }
+    .btn-buscar { border-radius: 8px; }
+    .panel-huespedes { width: 100%; top: auto; position: static; box-shadow: none; padding: 10px 0;}
+}
+/* --- SECCIÓN HABITACIONES --- */
+.seccion-habitaciones {
+    padding: 100px 20px;
+    background-color: var(--color-blanco);
+}
+
+.contenedor-habitaciones {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-seccion h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    color: var(--color-texto);
+    margin-bottom: 10px;
+}
+
+.titulo-seccion p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* --- GRID DE TARJETAS (Estilo Airbnb) --- */
+.grid-habitaciones {
+    display: grid;
+    /* Magia pura: crea columnas automáticas que se adaptan al tamaño de la pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-hab {
+    background-color: var(--color-fondo);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover cuando pasas el mouse */
+.tarjeta-hab:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.tarjeta-hab img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Evita que la foto se estire feo */
+}
+
+.info-hab {
+    padding: 25px;
+}
+
+.info-hab h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-principal);
+}
+
+.info-hab p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-secundario {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--color-boton);
+    color: var(--color-boton);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secundario:hover {
+    background-color: var(--color-boton);
+    color: var(--color-blanco);
+}
+/* --- SECCIÓN EXPERIENCIAS --- */
+.seccion-experiencias {
+    padding: 100px 20px;
+    background-color: var(--color-fondo); /* Alternamos el color de fondo para separar secciones */
+}
+
+.contenedor-experiencias {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-experiencias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.experiencia-item {
+    background-color: var(--color-blanco);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.experiencia-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.experiencia-item h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-principal);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.experiencia-item p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: var(--color-texto);
+    color: var(--color-blanco);
+    padding: 80px 20px 20px;
+}
+
+.contenedor-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-columna h4 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    color: var(--color-principal);
+}
+
+.footer-columna p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.footer-columna a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-columna a:hover {
+    color: var(--color-principal);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #888;
+    font-size: 0.85rem;
+}
+/* ================= ANIMACIONES DE SCROLL ================= */
+
+/* Estado inicial: oculto y un poco abajo */
+.fade-in-scroll {
+    opacity: 1;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+
+/* Estado activo: se activa mediante JavaScript cuando es visible */
+.fade-in-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retrasos (Delays) para que las tarjetas aparezcan en cascada (una tras otra) */
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+
+/* --- ESTILOS DE PRECIOS DINÁMICOS --- */
+.contenedor-precio {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.precio-noche {
+    font-size: 1.1rem;
+    color: var(--color-texto);
+}
+
+.total-estadia {
+    font-size: 0.95rem;
+    color: var(--color-principal);
+    font-weight: 600;
+    margin-top: 5px;
+    display: none; /* Oculto por defecto hasta que busquen fechas */
+}
+
+.total-estadia.activo {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Deja esto al final de tu style.css para asegurar que siempre se vean */
+.fade-in-scroll {
+    opacity: 1 !important;        /* Forzamos a que siempre sean visibles */
+    transform: translateY(0) !important; /* Quitamos el desplazamiento */
+}

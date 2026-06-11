@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Eco-Boutique Miranda | Naturaleza y Lujo</title>
+    
+    <!-- Conexión a Google Fonts para una tipografía elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    
+    <!-- Conexión a tu archivo de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="header">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="#" class="logo">EcoBoutique</a>
+            
+            <!-- Enlaces centrales -->
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#habitaciones" class="nav-link">Habitaciones</a></li>
+                    <li><a href="#experiencias" class="nav-link">Experiencias</a></li>
+                </ul>
+            </nav>
+
+            <!-- Botón de Reserva -->
+            <a href="#reservar" class="btn-reservar desktop-only">Reservar Ahora</a>
+            
+            <!-- Botón de Menú para Celulares -->
+            <button class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">El refugio que mereces.</h1>
+            <p class="hero-subtitle">Desconecta de la rutina y reconecta con la naturaleza en el corazón del Cauca.</p>
+        </div>
+
+        <div class="booking-container">
+            <form class="booking-form" id="search-form">
+                
+              <!-- 1. UBICACIÓN (Buscador Inteligente) -->
+                <div class="input-group">
+                    <label for="ubicacion">Ubicación</label>
+                    <input type="text" id="ubicacion" list="lista-ciudades" placeholder="Ej: Medellín..." required autocomplete="off">
+                    <datalist id="lista-ciudades">
+                        <!-- Las 1,100+ ciudades se inyectarán aquí con JavaScript -->
+                    </datalist>
+                </div>
+
+                <div class="divisor"></div>
+
+                <div class="input-group">
+                    <label for="checkin">Llegada</label>
+                    <input type="date" id="checkin" required>
+                </div>
+                
+                <div class="divisor"></div>
+
+                <div class="input-group">
+                    <label for="checkout">Salida</label>
+                    <input type="date" id="checkout" required>
+                </div>
+
+                <div class="divisor"></div>
+                
+                <div class="input-group posicion-relativa">
+                    <label>Huéspedes</label>
+                    <div class="huespedes-display" id="btn-huespedes">
+                        <span id="texto-huespedes">2 adultos</span>
+                    </div>
+
+                    <div class="panel-huespedes" id="panel-huespedes">
+                        <div class="fila-huespedes">
+                            <div class="huesped-info">
+                                <p class="h-tipo">Adultos</p>
+                                <p class="h-edad">Edad 13 o más</p>
+                            </div>
+                            <div class="huesped-controles">
+                                <button type="button" class="btn-ctrl" id="restar-adultos">-</button>
+                                <span class="h-cant" id="cant-adultos">2</span>
+                                <button type="button" class="btn-ctrl" id="sumar-adultos">+</button>
+                            </div>
+                        </div>
+                        <div class="fila-huespedes">
+                            <div class="huesped-info">
+                                <p class="h-tipo">Niños</p>
+                                <p class="h-edad">De 2 a 12 años</p>
+                            </div>
+                            <div class="huesped-controles">
+                                <button type="button" class="btn-ctrl" id="restar-ninos">-</button>
+                                <span class="h-cant" id="cant-ninos">0</span>
+                                <button type="button" class="btn-ctrl" id="sumar-ninos">+</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-cerrar-panel" id="btn-cerrar-panel">Aplicar</button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-buscar">Buscar</button>
+            </form>
+        </div>
+    </section>
+    <!-- ================= SECCIÓN DE HABITACIONES ================= -->
+    <section class="seccion-habitaciones" id="habitaciones">
+        <div class="contenedor-habitaciones">
+            <div class="titulo-seccion">
+                <h2>Diseñadas para el descanso</h2>
+                <p>Encuentra el espacio perfecto para tu estadía, rodeado de naturaleza.</p>
+            </div>
+
+            <div class="grid-habitaciones">
+                <article class="tarjeta-hab fade-in-scroll">
+                    <img src="https://i.pinimg.com/originals/d2/a6/27/d2a6273b25cd969f873ba52e0ee59d8a.jpg" alt="Habitación Estándar">
+                    <div class="info-hab">
+                        <h3>El Refugio (Estándar)</h3>
+                        <p>Cama King, ducha efecto lluvia y balcón privado con vista a la montaña.</p>
+                        <div class="contenedor-precio">
+                            <p class="precio-noche"><strong>$250.000 COP</strong> / noche</p>
+                            <p class="total-estadia" id="total-hab1" data-base="250000"></p>
+                        </div>
+                        <a href="#" class="btn-secundario btn-reserva-directa" data-room="El Refugio (Estándar)">Reservar Habitación</a>
+                    </div>
+                </article>
+
+                <article class="tarjeta-hab fade-in-scroll">
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=600&q=80" alt="Suite Panorama">
+                    <div class="info-hab">
+                        <h3>Suite Panorama</h3>
+                        <p>Terraza privada con jacuzzi, sala de estar y ventanales de piso a techo.</p>
+                        <div class="contenedor-precio">
+                            <p class="precio-noche"><strong>$450.000 COP</strong> / noche</p>
+                            <p class="total-estadia" id="total-hab2" data-base="450000"></p>
+                        </div>
+                        <a href="#" class="btn-secundario btn-reserva-directa" data-room="Suite Panorama">Reservar Habitación</a>
+                    </div>
+                </article>
+
+                <article class="tarjeta-hab fade-in-scroll">
+                    <img src="https://images.unsplash.com/photo-1560067174-c5a3a8f37060?auto=format&fit=crop&w=600&q=80" alt="Villa Familiar">
+                    <div class="info-hab">
+                        <h3>La Villa (Familiar)</h3>
+                        <p>Capacidad para 5 personas, áreas separadas y acceso directo a los jardines.</p>
+                        <div class="contenedor-precio">
+                            <p class="precio-noche"><strong>$750.000 COP</strong> / noche</p>
+                            <p class="total-estadia" id="total-hab3" data-base="750000"></p>
+                        </div>
+                        <a href="#" class="btn-secundario btn-reserva-directa" data-room="La Villa (Familiar)">Reservar Habitación</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+<section class="seccion-experiencias" id="experiencias">
+        <div class="contenedor-experiencias">
+            <div class="titulo-seccion">
+                <h2>Vive la Magia del Cauca</h2>
+                <p>Actividades diseñadas para conectar tu cuerpo y espíritu con el entorno.</p>
+            </div>
+            
+            <div class="grid-experiencias">
+                
+                <div class="experiencia-item fade-in-scroll">
+                    <h3>🌿 Senderismo Ecológico</h3>
+                    <p>Recorre senderos milenarios guiado por expertos locales, descubre la flora nativa y cascadas ocultas.</p>
+                </div>
+                
+                <div class="experiencia-item fade-in-scroll delay-1">
+                    <h3>🧘‍♀️ Yoga al Amanecer</h3>
+                    <p>Clases guiadas en nuestra terraza panorámica para empezar el día con energía y paz mental.</p>
+                </div>
+                
+                <div class="experiencia-item fade-in-scroll delay-2">
+                    <h3>☕ Cata de Café Especial</h3>
+                    <p>Degusta los mejores granos de la región directamente de las fincas vecinas, una experiencia para los sentidos.</p>
+                </div>
+
+            </div> 
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="contenedor-footer">
+            <div class="footer-columna">
+                <h4>EcoBoutique</h4>
+                <p>Un refugio diseñado para desconectar de la rutina y reconectar con la esencia de la naturaleza en el corazón de Miranda.</p>
+            </div>
+            
+            <div class="footer-columna">
+                <h4>Contacto</h4>
+                <p>📍 Vía Principal Ecológica, Km 2<br>Miranda, Cauca, Colombia</p>
+                <p>📞 +57 300 000 0000</p>
+                <p>✉️ reservas@ecoboutique.com</p>
+            </div>
+            
+            <div class="footer-columna">
+                <h4>Enlaces Rápidos</h4>
+                <a href="#inicio">Inicio</a>
+                <a href="#habitaciones">Habitaciones</a>
+                <a href="#experiencias">Experiencias</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hotel EcoBoutique. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Conexión a tu archivo de interactividad -->
+    <script src="app.js"></script>
+</body>
+</html>
