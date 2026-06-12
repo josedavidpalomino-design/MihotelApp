@@ -135,59 +135,76 @@ body {
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 /* --- HERO SECTION --- */
+/* ================= HERO RECONFIGURADO PARA VÍDEO ================= */
+/* ================= HERO TOTALMENTE CENTRADO ================= */
+/* ================= HERO REPARADO Y BLINDADO ================= */
 .hero {
-    position: relative;
-    height: 85vh; 
-    min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* AQUÍ CAMBIAMOS EL ENLACE POR TU IMAGEN LOCAL */
-    background-image: url('img/hero.jpg.jpg');
+    position: relative !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    background-color: #333; /* Color oscuro base por si el video tarda */
+    background-image: url("https://co.images.search.yahoo.com/images/view;_ylt=AwrFchKVmCtqEmsV4eytcgx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzAxYjhlMjZlYjI2ZDg5YzI1YzI1NGE0MjAwYTc5OTJjBGdwb3MDMQRpdANiaW5n?back=https%3A%2F%2Fco.images.search.yahoo.com%2Fsearch%2Fimages%3Fp%3Dimagen%2Bdel%2Blogo%2Bdel%2Bcauca%26type%3DE210CO885G0%26fr%3Dmcafee%26fr2%3Dpiv-web%26tab%3Dorganic%26ri%3D1&w=800&h=960&imgurl=www.cauca.gov.co%2FLaGobernacion%2FPublishingImages%2Fescudo-departamento-del-cauca.png&rurl=https%3A%2F%2Fwww.cauca.gov.co%2FLaGobernacion%2FPublishingImages%2FForms%2FThumbnails.aspx&size=177KB&p=imagen+del+logo+del+cauca&oid=01b8e26eb26d89c25c254a4200a7992c&fr2=piv-web&fr=mcafee&tt=Im%C3%A1genes+-+Miniaturas&b=0&ni=21&no=1&ts=&tab=organic&sigr=1BUkl3KQAnKD&sigb=XCmMBuAtyzc0&sigi=RRa0ILIg34qQ&sigt=H7XlvcB8W3nS&.crumb=IWle8X41Ve9&fr=mcafee&fr2=piv-web&type=E210CO885G0"); /* Esto ya lo tienes */
     background-size: cover;
     background-position: center;
+    
+    /* LA LÍNEA MÁGICA: */
+    background-attachment: fixed !important;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(44, 48, 46, 0.4), rgba(44, 48, 46, 0.6));
-    z-index: 1;
+/* Forzamos al video a irse al fondo absoluto */
+.video-fondo {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Esto evita que se deforme */
+    z-index: 1 !important;
 }
 
+/* La capa oscura va justo encima del video */
+.capa-oscura {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 2 !important;
+}
+
+/* El contenido (textos y buscador) flota encima de todo */
 .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: var(--color-blanco);
-    padding: 0 20px;
-    margin-bottom: 40px; /* Sube un poco el texto para dar espacio al buscador */
+    position: relative !important;
+    z-index: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 90%;
+    max-width: 1100px;
+    margin-top: 50px; /* Le da un poco de aire desde arriba */
 }
 
-.hero-title {
-    font-family: var(--fuente-titulos);
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+/* Textos blancos brillantes */
+.hero-content h1, .hero-content p {
+    color: #ffffff !important;
+    text-align: center !important;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.8) !important;
 }
 
-.hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-}
+.hero-content h1 { font-size: 3.5rem !important; margin-bottom: 10px !important; }
+.hero-content p { font-size: 1.2rem !important; margin-bottom: 40px !important; }
 
-/* --- MOTOR DE RESERVAS PREMIUM --- */
+/* El buscador se acomoda solo en el centro */
 .booking-container {
-    position: relative;
-    z-index: 10;
     width: 100%;
-    max-width: 1000px;
-    padding: 0 20px;
-    transform: translateY(40px); /* Hace flotar la caja un poco fuera de la foto */
+    position: relative !important;
+    z-index: 3 !important;
 }
 
 .booking-form {
@@ -387,7 +404,228 @@ body {
     border: none; padding: 10px; border-radius: 8px; cursor: pointer;
     font-weight: 600; margin-top: 5px;
 }
+/* ================= BOTÓN VER DETALLES ================= */
+.acciones-habitacion {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
 
+.btn-detalles {
+    background-color: transparent;
+    color: var(--color-texto, #333);
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    flex: 1;
+}
+
+.btn-detalles:hover {
+    border-color: var(--color-texto, #333);
+    background-color: #f9f9f9;
+}
+
+.btn-reserva-directa {
+    flex: 1; /* Para que ambos botones midan lo mismo */
+}
+
+/* ================= VENTANA MODAL (OCULTA POR DEFECTO) ================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px); /* Efecto borroso elegante */
+    z-index: 9999; /* Por encima de todo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Clase que activa JavaScript para mostrarla */
+.modal-overlay.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.modal-overlay.activo .modal-content {
+    transform: scale(1);
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #fff;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #333;
+    z-index: 10;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.modal-grid {
+    display: flex;
+}
+
+.modal-galeria {
+    flex: 1;
+    min-height: 300px;
+}
+
+.modal-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-info h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--color-texto); }
+.modal-info p { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+.modal-info h4 { margin-bottom: 10px; font-size: 1rem; color: #333; }
+
+.lista-amenities {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.lista-amenities li {
+    font-size: 0.85rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.lista-amenities li::before {
+    content: '✓';
+    color: #6b8e23; /* Tu verde */
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+    .modal-grid { flex-direction: column; }
+    .modal-galeria { height: 250px; flex: none; }
+    .modal-info { padding: 20px; }
+    .lista-amenities { grid-template-columns: 1fr; }
+    .acciones-habitacion { flex-direction: column; }
+}
+/* ================= SECCIÓN FAQ ================= */
+.seccion-faq {
+    padding: 80px 20px;
+    background-color: #fcfbfa; /* Un tono arena muy sutil */
+}
+
+.contenedor-faq {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lista-faq {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-faq {
+    background-color: #ffffff;
+    border: 1px solid #eaddd3; /* Borde suave terracota/arena */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.pregunta-faq {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-texto, #333);
+    cursor: pointer;
+    font-family: var(--fuente-textos);
+    transition: background-color 0.3s;
+}
+
+.pregunta-faq:hover {
+    background-color: #fdfaf7;
+}
+
+.icono-flecha {
+    font-size: 1.4rem;
+    color: #a67c52; /* Tu color terracota/café secundario */
+    transition: transform 0.3s ease;
+}
+
+/* Ocultar la respuesta por defecto con animaciones suaves */
+.respuesta-faq {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    padding: 0 22px;
+    background-color: #fff;
+}
+
+.respuesta-faq p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Clases dinámicas que activará JavaScript */
+.item-faq.activo {
+    border-color: #a67c52;
+    box-shadow: 0 10px 20px rgba(166, 124, 82, 0.08);
+}
+
+.item-faq.activo .icono-flecha {
+    transform: rotate(45deg); /* La cruz '+' gira y se convierte en una 'X' de cerrar */
+    color: #333;
+}
 /* --- RESPONSIVE DEL BUSCADOR (Móviles) --- */
 @media (max-width: 850px) {
     .booking-form {
@@ -640,3 +878,483 @@ body {
     opacity: 1 !important;        /* Forzamos a que siempre sean visibles */
     transform: translateY(0) !important; /* Quitamos el desplazamiento */
 }
+/* ================= ESTILO PARA ÍCONOS SVG PREMIUM ================= */
+.icono-experiencia {
+    width: 60px;
+    height: 60px;
+    background-color: #fdfaf7; /* Fondo sutil color crema/arena */
+    border-radius: 50%; /* Burbuja redonda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #eaddd3;
+}
+
+/* El comportamiento del vector interno */
+.svg-premium {
+    width: 30px;
+    height: 30px;
+    color: #a67c52; /* Tu color terracota/café de marca */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto interactivo: Cuando el usuario pase el mouse sobre la tarjeta */
+.tarjeta-experiencia:hover .icono-experiencia {
+    background-color: #a67c52; /* Invierte colores */
+    border-color: #a67c52;
+    transform: translateY(-5px); /* Pequeño brinco elegante */
+}
+
+.tarjeta-experiencia:hover .svg-premium {
+    color: #ffffff; /* El ícono se vuelve blanco al hacer hover */
+    transform: scale(1.1); /* Crece un 10% dentro del círculo */
+}
+/* ================= UNIFICAR ESTILOS DE BOTONES HABITACIÓN ================= */
+
+/* 1. Estilo base común para ambos botones */
+.acciones-habitacion .btn-detalles,
+.acciones-habitacion .btn-reserva-directa {
+    flex: 1; /* Hace que ambos botones midan exactamente lo mismo de ancho */
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--fuente-textos);
+    border-radius: 8px; /* Bordes redondeados suaves iguales al de detalles */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 2. El botón de Detalles (Mantiene su esencia sutil) */
+.acciones-habitacion .btn-detalles {
+    background-color: #fcfbfa; /* Fondo arena muy claro */
+    color: #333333;
+    border: 1px solid #eaddd3; /* Borde suave */
+}
+
+.acciones-habitacion .btn-detalles:hover {
+    background-color: #eaddd3;
+    border-color: #a67c52;
+}
+
+/* 3. El botón de Reservar (Ahora idéntico en estructura, pero con un toque distintivo si deseas) */
+.acciones-habitacion .btn-reserva-directa {
+    background-color: #ffffff; /* Fondo blanco limpio */
+    color: #a67c52; /* Texto en el terracota de tu marca */
+    border: 1px solid #eaddd3; /* Mismo grosor y color de borde que detalles */
+}
+
+/* Efecto hover interactivo para el botón de reservar */
+.acciones-habitacion .btn-reserva-directa:hover {
+    background-color: #a67c52; /* Se rellena de tu color de marca al pasar el mouse */
+    color: #ffffff; /* El texto pasa a blanco */
+    border-color: #a67c52;
+}
+/* ================= SECCIÓN TESTIMONIOS ================= */
+.seccion-testimonios {
+    padding: 100px 20px;
+    background-color: #f4efea; /* Un tono crema un poquito más denso */
+}
+
+.contenedor-testimonios {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-testimonios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.tarjeta-testimonio {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    border: 1px solid #eaddd3;
+}
+
+.tarjeta-testimonio:hover {
+    transform: translateY(-10px); /* Efecto de flotar al pasar el mouse */
+    box-shadow: 0 15px 40px rgba(166, 124, 82, 0.1); /* Sombra con un toque terracota */
+}
+
+/* Estrellas doradas */
+.estrellas {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.estrellas svg {
+    width: 20px;
+    height: 20px;
+    fill: #d4af37; /* Color dorado premium */
+}
+
+/* Texto de la reseña */
+.texto-testimonio {
+    font-size: 1.05rem;
+    color: #555555;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Empuja al autor hacia abajo para que todas las tarjetas midan igual */
+}
+
+/* Información del huésped */
+.autor-testimonio {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #eaddd3;
+    padding-top: 20px;
+}
+
+.autor-testimonio strong {
+    color: #333333;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.autor-testimonio span {
+    color: #a67c52; /* Terracota de marca */
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.seccion-mapa {
+    padding: 80px 20px;
+    background-color: #ffffff;
+}
+.mapa-wrapper {
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    border: 1px solid #eaddd3;
+}
+.mapa-wrapper iframe {
+    display: block;
+    filter: grayscale(0.2) contrast(1.1); /* Toque sutil de color premium */
+}
+.badge-urgencia {
+    display: inline-block;
+    background-color: #fff5f5;
+    color: #c53030; /* Un rojo oscuro elegante, no chillón */
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin: 8px 0;
+    border: 1px solid #fed7d7;
+    animation: pulsoSuave 2s infinite ease-in-out;
+}
+
+/* Animación sutil para captar la mirada sin molestar */
+@keyframes pulsoSuave {
+    0% { opacity: 0.9; }
+    50% { opacity: 1; transform: scale(1.01); }
+    100% { opacity: 0.9; }
+}
+/* ================= SELECTOR DE EXTRAS ================= */
+.seccion-extras {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+.contenedor-extras {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.grid-extras {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.tarjeta-extra {
+    cursor: pointer;
+    display: block; /* Para que todo el bloque sea clickeable */
+}
+/* Ocultamos el checkbox nativo feo */
+.checkbox-extra {
+    display: none;
+}
+.contenido-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fcfbfa;
+    border: 2px solid #eaddd3;
+    padding: 20px 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+.info-extra {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.icono-extra {
+    font-size: 2rem;
+}
+.textos-extra strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 4px;
+}
+.textos-extra p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+.precio-extra {
+    font-weight: bold;
+    color: #a67c52;
+}
+
+/* LA MAGIA AL SELECCIONAR (CHECKED) */
+.checkbox-extra:checked + .contenido-extra {
+    border-color: #a67c52;
+    background-color: #fdfaf7;
+    box-shadow: 0 5px 15px rgba(166, 124, 82, 0.15);
+}
+/* ================= MODO OSCURO AUTOMÁTICO ================= */
+@media (prefers-color-scheme: dark) {
+    /* Fondo general y textos */
+    body {
+        background-color: #121212 !important;
+        color: #e0e0e0 !important;
+    }
+    
+    h1, h2, h3, h4, .titulo-seccion, .textos-extra strong, .autor-testimonio strong {
+        color: #ffffff !important;
+    }
+    
+    p, .subtitulo-seccion, .texto-testimonio, .textos-extra p {
+        color: #b0b0b0 !important;
+    }
+
+    /* Fondos de secciones para dar profundidad */
+    .seccion-faq, .seccion-testimonios, .seccion-mapa, .seccion-extras {
+        background-color: #181818 !important;
+    }
+
+    /* Tarjetas y contenedores (Buscador, Habitaciones, Extras, FAQ) */
+    .booking-container, .tarjeta-habitacion, .tarjeta-testimonio, .item-faq, .contenido-extra, .mapa-wrapper, .icono-experiencia {
+        background-color: #242424 !important;
+        border-color: #333333 !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* Ajustes específicos para botones secundarios */
+    .btn-detalles {
+        background-color: #333333 !important;
+        color: #ffffff !important;
+        border-color: #444444 !important;
+    }
+
+    /* Mantener el color corporativo pero adaptado */
+    .precio-extra, .precio-noche strong, .autor-testimonio span {
+        color: #c49a6c !important; /* Un terracota un poco más claro para fondos oscuros */
+    }
+    
+    /* FAQ Abierto en modo oscuro */
+    .item-faq.activo {
+        border-color: #c49a6c !important;
+    }
+    .respuesta-faq {
+        background-color: #242424 !important;
+    }
+}
+/* ================= FOOTER Y CONTACTO ================= */
+.footer-principal {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    padding: 70px 20px 20px 20px;
+    margin-top: 40px;
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    font-size: 2.2rem;
+    color: #c49a6c; /* Terracota luminoso */
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.footer-columna p {
+    color: #a0a0a0;
+    line-height: 1.7;
+}
+
+.footer-columna h4 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.footer-enlaces, .footer-contacto {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-enlaces li, .footer-contacto li {
+    margin-bottom: 15px;
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+.footer-enlaces a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+/* Efecto interactivo: el enlace avanza sutilmente hacia la derecha */
+.footer-enlaces a:hover {
+    color: #c49a6c;
+    padding-left: 5px; 
+}
+
+/* Redes Sociales */
+.footer-redes {
+    display: flex;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.footer-redes a {
+    color: #a0a0a0;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2a2a2a;
+}
+
+.footer-redes a:hover {
+    color: #ffffff;
+    background-color: #c49a6c;
+    transform: translateY(-5px);
+}
+
+.footer-redes svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Copyright Inferior */
+.footer-bottom {
+    text-align: center;
+    padding-top: 25px;
+    color: #777777;
+    font-size: 0.85rem;
+}
+
+/* Adaptación del modo oscuro para el footer (para evitar doble fondo) */
+@media (prefers-color-scheme: dark) {
+    .footer-principal {
+        background-color: #0a0a0a !important;
+    }
+    /* Ajuste para que los extras seleccionados brillen en modo oscuro */
+    .checkbox-extra:checked + .contenido-extra {
+        border-color: #c49a6c !important; /* Borde terracota luminoso */
+        background-color: #2a1f16 !important; /* Fondo sutilmente cálido/oscuro */
+        box-shadow: 0 5px 15px rgba(196, 154, 108, 0.15) !important;
+    }
+}
+/* ================= 1. MICROINTERACCIONES: FADE-IN SCROLL ================= */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px); /* Empieza 40px más abajo */
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform; /* Le avisa al navegador para que no se trabe */
+}
+
+/* Esta clase se añadirá automáticamente con JavaScript cuando el usuario haga scroll */
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0); /* Sube a su posición original */
+}
+
+/* Opcional: Retraso escalonado para las tarjetas de testimonios y habitaciones */
+.grid-testimonios .tarjeta-testimonio:nth-child(1) { transition-delay: 0.1s; }
+.grid-testimonios .tarjeta-testimonio:nth-child(2) { transition-delay: 0.3s; }
+.grid-testimonios .tarjeta-testimonio:nth-child(3) { transition-delay: 0.5s; }
+
+.grid-extras .tarjeta-extra:nth-child(1) { transition-delay: 0.1s; }
+.grid-extras .tarjeta-extra:nth-child(2) { transition-delay: 0.2s; }
+.grid-extras .tarjeta-extra:nth-child(3) { transition-delay: 0.3s; }
+
+/* ================= CURSOR PERSONALIZADO (AURA) ================= */
+/* Solo se muestra en pantallas de escritorio (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .cursor-premium {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 35px;
+        height: 35px;
+        border: 1px solid #a67c52; /* Tu terracota corporativo */
+        border-radius: 50%;
+        pointer-events: none; /* MUY IMPORTANTE: Evita que el anillo bloquee tus clics */
+        z-index: 99999; /* Lo mantiene por encima de todo el sitio */
+        transform: translate(-50%, -50%); /* Centra el anillo exactamente en la punta de tu ratón */
+        
+        /* Animación suave para cuando cambia de tamaño */
+        transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Esta clase se añadirá con JS cuando pases sobre un botón o enlace */
+    .cursor-premium.hover-activo {
+        width: 60px; /* Se hace más grande */
+        height: 60px;
+        background-color: rgba(166, 124, 82, 0.1); /* Se rellena con un terracota muy transparente */
+        border-color: #c49a6c; /* Brilla un poco más */
+    }
+}
+
+/* Ocultamos el anillo en tablets y móviles porque allí se usa el dedo */
+@media (max-width: 1023px) {
+   .cursor-premium {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #a67c52;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    
+    /* 1. ACELERACIÓN POR HARDWARE */
+    will-change: transform; 
+    
+    /* 2. TRANSICIÓN ESTRICTA: Solo animar tamaño y color, NUNCA el movimiento */
+    transition: width 0.15s ease-out, height 0.15s ease-out, background-color 0.15s ease-out, border-color 0.15s ease-out;
+}}

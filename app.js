@@ -188,12 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 entrada.target.classList.add('is-visible');
                 observador.unobserve(entrada.target); 
             }
+            
         });
     }, opciones);
 
     elementosAnimados.forEach(elemento => {
         observador.observe(elemento);
     });
+    
+    
 
 });
 // ================= CONEXIÓN DE RESERVAS A WHATSAPP =================
@@ -243,3 +246,117 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(urlWhatsApp, '_blank');
         });
     });
+    // ================= LÓGICA DE VENTANA MODAL (DETALLES HABITACIÓN) =================
+    const modalOverlay = document.getElementById('modal-habitacion');
+    const btnCerrarModal = document.getElementById('btn-cerrar-modal');
+    const botonesDetalles = document.querySelectorAll('.btn-detalles');
+    const btnReservarModal = document.getElementById('btn-reservar-modal');
+
+    // Elementos dentro del modal a modificar
+    const modalTitulo = document.getElementById('modal-titulo');
+    const modalImg = document.getElementById('modal-img');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalListaAmenities = document.getElementById('modal-lista-amenities');
+
+    let habitacionActualModal = "";
+
+    // Abrir modal y cargar datos
+    botonesDetalles.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Extraer datos del botón
+            const titulo = boton.getAttribute('data-titulo');
+            const img = boton.getAttribute('data-img');
+            const desc = boton.getAttribute('data-desc');
+            const amenities = boton.getAttribute('data-amenities'); // Viene separado por comas
+            
+            habitacionActualModal = titulo;
+
+            // Inyectar datos en el modal
+            modalTitulo.innerText = titulo;
+            modalImg.src = img;
+            modalDesc.innerText = desc;
+            
+            // Limpiar y crear la lista de características
+            modalListaAmenities.innerHTML = "";
+            const listaArray = amenities.split(',');
+            listaArray.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item.trim();
+                modalListaAmenities.appendChild(li);
+            });
+
+            // Mostrar modal
+            modalOverlay.classList.add('activo');
+        });
+    });
+
+    // Cerrar modal con la X
+    if (btnCerrarModal) {
+        btnCerrarModal.addEventListener('click', () => {
+            modalOverlay.classList.remove('activo');
+        });
+    }
+
+    // Cerrar modal al hacer clic afuera de la caja blanca
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('activo');
+            }
+        });
+    }
+
+    // Conectar el botón de "Reservar" de la ventana modal a WhatsApp
+    if (btnReservarModal) {
+        btnReservarModal.addEventListener('click', () => {
+            // Reutiliza tu lógica de WhatsApp aquí
+            const selectUbicacion = document.getElementById('ubicacion');
+            const ubicacionSeleccionada = selectUbicacion ? selectUbicacion.value : "";
+            const fechaLlegada = document.getElementById('checkin').value;
+            const fechaSalida = document.getElementById('checkout').value;
+            const telefonoHotel = "573146083386"; // Tu número
+
+            if (!ubicacionSeleccionada || !fechaLlegada || !fechaSalida) {
+                alert("Por favor, selecciona tu Ubicación y las Fechas en el buscador primero.");
+                modalOverlay.classList.remove('activo');
+                document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            let textoHuespedesWp = `${window.valAdultos || 2} Adultos`;
+            if (window.valNinos > 0) {
+                textoHuespedesWp += ` y ${window.valNinos} Niños`;
+            }
+
+            const mensajeText = `✨ *Nueva Solicitud de Reserva* ✨\n\n📍 *Destino:* ${ubicacionSeleccionada}\n🏨 *Habitación:* ${habitacionActualModal}\n📅 *Llegada:* ${fechaLlegada}\n📅 *Salida:* ${fechaSalida}\n👥 *Huéspedes:* ${textoHuespedesWp}\n\n¿Me podrían confirmar disponibilidad?`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${telefonoHotel}&text=${encodeURIComponent(mensajeText)}`, '_blank');
+        });
+    }
+    // ================= LÓGICA DE ACORDEÓN (FAQ) =================
+    const preguntasFaq = document.querySelectorAll('.pregunta-faq');
+
+    preguntasFaq.forEach(pregunta => {
+        pregunta.addEventListener('click', () => {
+            const itemActual = pregunta.parentElement; // Captura el contenedor .item-faq
+            const respuestaActual = itemActual.querySelector('.respuesta-faq');
+
+            // Verificar si el elemento ya está abierto
+            const estaActivo = itemActual.classList.contains('activo');
+
+            // CERRAR TODOS los demás acordeones antes de abrir uno nuevo (opcional, se ve muy ordenado)
+            document.querySelectorAll('.item-faq').forEach(item => {
+                item.classList.remove('activo');
+                item.querySelector('.respuesta-faq').style.maxHeight = "0";
+            });
+
+            // Si no estaba activo, lo abrimos
+            if (!estaActivo) {
+                itemActual.classList.add('activo');
+                // scrollHeight calcula automáticamente el alto real del texto oculto en píxeles
+                respuestaActual.style.maxHeight = respuestaActual.scrollHeight + "px";
+            }
+        });
+    });
+    
+    

@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- ================= CURSOR PREMIUM (AURA) ================= -->
+<div class="cursor-premium" id="cursorPremium"></div>
 
     <!-- BARRA DE NAVEGACIÓN -->
     <header class="header">
@@ -27,11 +29,12 @@
                     <li><a href="#inicio" class="nav-link">Inicio</a></li>
                     <li><a href="#habitaciones" class="nav-link">Habitaciones</a></li>
                     <li><a href="#experiencias" class="nav-link">Experiencias</a></li>
+                    <li><a href="#faq"class="nav-link">Preguntas Frecuentes</a></li>
                 </ul>
             </nav>
 
             <!-- Botón de Reserva -->
-            <a href="#reservar" class="btn-reservar desktop-only">Reservar Ahora</a>
+            <a href="#inicio" class="btn-reservar desktop-only">Reservar Ahora</a>
             
             <!-- Botón de Menú para Celulares -->
             <button class="hamburger" id="hamburger">
@@ -41,13 +44,20 @@
             </button>
         </div>
     </header>
-    <section class="hero" id="inicio">
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">El refugio que mereces.</h1>
-            <p class="hero-subtitle">Desconecta de la rutina y reconecta con la naturaleza en el corazón del Cauca.</p>
-        </div>
+ <section class="hero" id="inicio">
+    <video autoplay muted loop playsinline class="video-fondo">
+        <source src="https://rr1---sn-qxo7rnee.googlevideo.com/videoplayback?expire=1781254224&ei=8HMravS7Kcn1pt8PpeePiQk&ip=142.111.34.155&id=o-ALQijZvE6qRMF6WqvocPAt5g1lbQ6U26LT-WN9_TiSLo&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=ARmQxEXM0chdptrMjKd8KZR-OSj1vNMOTv-0Huy-ajxEzuguGrq5ZVlVvmdFUehmfwRvtQby8NceYmr3&spc=SQ-umkrGiKHMFAHQMx6655EyAfOSDdF3gf1m6F6zWmfuqeto7Tws5vVd9fj_TMI9X2A&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=79.412&lmt=1754878507900234&fexp=51565115,51565682&c=ANDROID&txp=5438534&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AHEqNM4wRQIhAJVWisOD0_MG1zN46h_FoWfock1wTGAz0N8XHf5czbiXAiBEm46IFS4-uDJuymY8RUrboF2HYNM-WS0JjljVeHjkGA%3D%3D&redirect_counter=1&rm=sn-ogue7676&rrc=104&req_id=8112e97d5e23a3ee&cms_redirect=yes&cmsv=e&cps=0&ipbypass=yes&met=1781232655,&mh=R0&mip=45.190.86.78&mm=31&mn=sn-qxo7rnee&ms=au&mt=1781231895&mv=D&mvi=1&pl=0&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIhAJ51245_kRG-70pLK2NZJpsS7mE51HC3BHNBg-JkoC2XAiAL6S3geLSQ1zkLkG3dCh4RRx32WPjSPVN8JMlIixh2fw%3D%3D" type="video/mp4">
+        Tu navegador no soporta vídeos.
+    </video>
+
+    <div class="capa-oscura"></div>
+
+    <div class="hero-content">
+        <h1>El refugio que merece.</h1>
+        <p>Desconecta de la rutina y reconecta con la naturaleza en el corazón del Cauca.</p>
+    </div>
+
+    
 
         <div class="booking-container">
             <form class="booking-form" id="search-form">
@@ -114,8 +124,59 @@
             </form>
         </div>
     </section>
+    <section class="seccion-extras">
+    <div class="contenedor-extras">
+        <h2 class="titulo-seccion" style="text-align: center;">Personaliza tu experiencia</h2>
+        <p class="subtitulo-seccion" style="text-align: center; margin-bottom: 30px;">Añade detalles inolvidables a tu reserva.</p>
+        <label class="tarjeta-extra fade-in-up">
+        <div class="grid-extras">
+            <label class="tarjeta-extra">
+                <input type="checkbox" class="checkbox-extra" value="150000">
+                <div class="contenido-extra">
+                    <div class="info-extra">
+                        <span class="icono-extra">🍾</span>
+                        <div class="textos-extra">
+                            <strong>Bienvenida Romántica</strong>
+                            <p>Botella de cava y fresas achocolatadas.</p>
+                        </div>
+                    </div>
+                    <span class="precio-extra">+$150.000 COP</span>
+                </div>
+            </label>
+
+            <label class="tarjeta-extra">
+                <input type="checkbox" class="checkbox-extra" value="200000">
+                <div class="contenido-extra">
+                    <div class="info-extra">
+                        <span class="icono-extra">💆‍♀️</span>
+                        <div class="textos-extra">
+                            <strong>Masaje Relajante</strong>
+                            <p>Sesión de 60 min para dos personas.</p>
+                        </div>
+                    </div>
+                    <span class="precio-extra">+$200.000 COP</span>
+                </div>
+            </label>
+
+            <label class="tarjeta-extra">
+                <input type="checkbox" class="checkbox-extra" value="80000">
+                <div class="contenido-extra">
+                    <div class="info-extra">
+                        <span class="icono-extra">🚐</span>
+                        <div class="textos-extra">
+                            <strong>Traslado VIP</strong>
+                            <p>Recogida directa en el aeropuerto.</p>
+                        </div>
+                    </div>
+                    <span class="precio-extra">+$80.000 COP</span>
+                </div>
+            </label>
+        </div>
+    </div>
+</section>
     <!-- ================= SECCIÓN DE HABITACIONES ================= -->
     <section class="seccion-habitaciones" id="habitaciones">
+        <div class="tarjeta-habitacion fade-in-up"> <!-- Añade fade-in-up aquí -->
         <div class="contenedor-habitaciones">
             <div class="titulo-seccion">
                 <h2>Diseñadas para el descanso</h2>
@@ -129,11 +190,23 @@
                         <h3>El Refugio (Estándar)</h3>
                         <p>Cama King, ducha efecto lluvia y balcón privado con vista a la montaña.</p>
                         <div class="contenedor-precio">
-                            <p class="precio-noche"><strong>$250.000 COP</strong> / noche</p>
-                            <p class="total-estadia" id="total-hab1" data-base="250000"></p>
-                        </div>
-                        <a href="#" class="btn-secundario btn-reserva-directa" data-room="El Refugio (Estándar)">Reservar Habitación</a>
-                    </div>
+    <p class="precio-noche"><strong>$250.000 COP</strong> / noche</p>
+    <span class="badge-urgencia">🔥 ¡Solo queda 1 disponible para estas fechas!</span>
+    
+    <p class="total-estadia" id="total-hab1" data-base="250000"></p>
+</div>
+                        <div class="acciones-habitacion">
+    <button class="btn-detalles" 
+        data-titulo="El Refugio (Estándar)" 
+        data-img="https://i.pinimg.com/originals/d2/a6/27/d2a6273b25cd969f873ba52e0ee59d8a.jpg" 
+        data-desc="Nuestra habitación más acogedora. Ideal para parejas que buscan total desconexión."
+        data-amenities="Cama King Size,Ducha efecto lluvia,Balcón privado,Vista a la montaña,25 m²,Wifi de alta velocidad">
+        Ver Detalles
+    </button>
+    
+    <button class="btn-reserva-directa" data-room="El Refugio">Reservar Habitación</button>
+</div>
+                      
                 </article>
 
                 <article class="tarjeta-hab fade-in-scroll">
@@ -141,11 +214,24 @@
                     <div class="info-hab">
                         <h3>Suite Panorama</h3>
                         <p>Terraza privada con jacuzzi, sala de estar y ventanales de piso a techo.</p>
-                        <div class="contenedor-precio">
-                            <p class="precio-noche"><strong>$450.000 COP</strong> / noche</p>
-                            <p class="total-estadia" id="total-hab2" data-base="450000"></p>
-                        </div>
-                        <a href="#" class="btn-secundario btn-reserva-directa" data-room="Suite Panorama">Reservar Habitación</a>
+                       <div class="contenedor-precio">
+    <p class="precio-noche"><strong>$350.000 COP</strong> / noche</p>
+    <span class="badge-urgencia">🔥 ¡Solo queda 3 disponible para estas fechas!</span>
+    
+    <p class="total-estadia" id="total-hab2" data-base="350000"></p>
+</div>
+                        <div class="acciones-habitacion">
+    <button class="btn-detalles" 
+        data-titulo="Suite Panorama" 
+        data-img="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=600&q=80" 
+        data-desc="Nuestra suite más exclusiva. Ideal para familias que buscan confort y privacidad."
+        data-amenities="Cama King Size,Ducha efecto lluvia,Terraza privada,Jacuzzi,Sala de estar,25 m²,Wifi de alta velocidad">
+        Ver Detalles
+    </button>
+    
+    <button class="btn-reserva-directa" data-room="El Refugio">Reservar Habitación</button>
+</div>
+                      
                     </div>
                 </article>
 
@@ -155,17 +241,33 @@
                         <h3>La Villa (Familiar)</h3>
                         <p>Capacidad para 5 personas, áreas separadas y acceso directo a los jardines.</p>
                         <div class="contenedor-precio">
-                            <p class="precio-noche"><strong>$750.000 COP</strong> / noche</p>
-                            <p class="total-estadia" id="total-hab3" data-base="750000"></p>
-                        </div>
-                        <a href="#" class="btn-secundario btn-reserva-directa" data-room="La Villa (Familiar)">Reservar Habitación</a>
+    <p class="precio-noche"><strong>$750.000 COP</strong> / noche</p>
+    <span class="badge-urgencia">🔥 ¡Solo queda 5 disponible para estas fechas!</span>
+    
+    <p class="total-estadia" id="total-hab3" data-base="750000"></p>
+</div>
+                        <div class="acciones-habitacion">
+    <button class="btn-detalles" 
+        data-titulo="El Refugio (Estándar)" 
+        data-img="https://images.unsplash.com/photo-1560067174-c5a3a8f37060?auto=format&fit=crop&w=600&q=80" 
+        data-desc="Nuestra habitación más acogedora. Ideal para parejas que buscan total desconexión."
+        data-amenities="Cama King Size,Ducha efecto lluvia,Balcón privado,Vista a la montaña,25 m²,Wifi de alta velocidad">
+        Ver Detalles
+    </button>
+    
+    <button class="btn-reserva-directa" data-room="El Refugio">Reservar Habitación</button>
+</div>
+                        
                     </div>
                 </article>
             </div>
         </div>
     </section>
 <section class="seccion-experiencias" id="experiencias">
+    
         <div class="contenedor-experiencias">
+            <div class="tarjeta-testimonio fade-in-up">
+            
             <div class="titulo-seccion">
                 <h2>Vive la Magia del Cauca</h2>
                 <p>Actividades diseñadas para conectar tu cuerpo y espíritu con el entorno.</p>
@@ -174,52 +276,303 @@
             <div class="grid-experiencias">
                 
                 <div class="experiencia-item fade-in-scroll">
-                    <h3>🌿 Senderismo Ecológico</h3>
+                
+                    <h3><div class="icono-experiencia">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="svg-premium">
+        <path d="m8 3 4 8 5-5 5 15H2L8 3z"/>
+        <path d="M4 14h4l3-3"/>
+    </svg>
+</div>Senderismo Ecológico</h3>
                     <p>Recorre senderos milenarios guiado por expertos locales, descubre la flora nativa y cascadas ocultas.</p>
                 </div>
                 
                 <div class="experiencia-item fade-in-scroll delay-1">
-                    <h3>🧘‍♀️ Yoga al Amanecer</h3>
+     
+                    <h3>                 <div class="icono-experiencia">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="svg-premium">
+        <path d="M2 6c.6 0 1.2-.2 1.6-.6L5 4l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L11 4l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L17 4l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L23 4"/>
+        <path d="M2 12c.6 0 1.2-.2 1.6-.6L5 10l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L11 10l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L17 10l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L23 10"/>
+        <path d="M2 18c.6 0 1.2-.2 1.6-.6L5 16l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L11 16l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L17 16l1.4 1.4c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6L23 16"/>
+    </svg>
+</div>Yoga al Amanecer</h3>
                     <p>Clases guiadas en nuestra terraza panorámica para empezar el día con energía y paz mental.</p>
                 </div>
                 
                 <div class="experiencia-item fade-in-scroll delay-2">
-                    <h3>☕ Cata de Café Especial</h3>
+                  
+                    <h3><div class="icono-experiencia">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="svg-premium">
+        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </svg>
+</div> Cata de Café Especial</h3>
                     <p>Degusta los mejores granos de la región directamente de las fincas vecinas, una experiencia para los sentidos.</p>
                 </div>
 
             </div> 
         </div>
     </section>
-
-    <footer class="footer">
-        <div class="contenedor-footer">
-            <div class="footer-columna">
-                <h4>EcoBoutique</h4>
-                <p>Un refugio diseñado para desconectar de la rutina y reconectar con la esencia de la naturaleza en el corazón de Miranda.</p>
-            </div>
-            
-            <div class="footer-columna">
-                <h4>Contacto</h4>
-                <p>📍 Vía Principal Ecológica, Km 2<br>Miranda, Cauca, Colombia</p>
-                <p>📞 +57 300 000 0000</p>
-                <p>✉️ reservas@ecoboutique.com</p>
-            </div>
-            
-            <div class="footer-columna">
-                <h4>Enlaces Rápidos</h4>
-                <a href="#inicio">Inicio</a>
-                <a href="#habitaciones">Habitaciones</a>
-                <a href="#experiencias">Experiencias</a>
-            </div>
-        </div>
+   
+    <section class="seccion-testimonios" id="testimonios">
         
-        <div class="footer-bottom">
-            <p>&copy; 2026 Hotel EcoBoutique. Todos los derechos reservados.</p>
+    <div class="contenedor-testimonios">
+        <div class="tarjeta-testimonio fade-in-up">
+        <h2 class="titulo-seccion">Voces de nuestros huéspedes</h2>
+        <p class="subtitulo-seccion">Historias reales de quienes ya vivieron la magia en el corazón del Cauca.</p>
+        
+        <div class="grid-testimonios">
+            
+            <div class="tarjeta-testimonio">
+                <div class="estrellas">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="texto-testimonio">"Un nivel de detalle y servicio impresionante. Despertar en La Villa con el sonido de las aves y ese desayuno orgánico fue el escape perfecto del estrés de la ciudad."</p>
+                <div class="autor-testimonio">
+                    <strong>Carolina Mejía</strong>
+                    <span>Cali, Colombia</span>
+                </div>
+            </div>
+
+            <div class="tarjeta-testimonio">
+                <div class="estrellas">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="texto-testimonio">"La clase de yoga al amanecer y el sendero ecológico superaron todas nuestras expectativas. Las instalaciones son de lujo pero se sienten en total armonía con la naturaleza."</p>
+                <div class="autor-testimonio">
+                    <strong>Mateo y Valeria</strong>
+                    <span>Bogotá, Colombia</span>
+                </div>
+            </div>
+
+            <div class="tarjeta-testimonio">
+                <div class="estrellas">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="texto-testimonio">"Reservamos la Suite Panorama por nuestro aniversario. La atención del personal y el jacuzzi en la terraza privada hicieron de este viaje algo inolvidable. ¡Volveremos seguro!"</p>
+                <div class="autor-testimonio">
+                    <strong>Familia Gómez</strong>
+                    <span>Medellín, Colombia</span>
+                </div>
+            </div>
+
         </div>
+    </div>
+</section>
+<section class="seccion-faq" id="faq">
+    <div class="contenedor-faq">
+        <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
+        <p class="subtitulo-seccion">Todo lo que necesitas saber antes de tu llegada al corazón del Cauca.</p>
+        
+        <div class="lista-faq">
+            <div class="item-faq">
+                <button class="pregunta-faq">
+                    <span>¿Cuáles son los horarios de Check-in y Check-out?</span>
+                    <strong class="icono-flecha">+</strong>
+                </button>
+                <div class="respuesta-faq">
+                    <p>El ingreso (Check-in) es a partir de las 3:00 PM y la salida (Check-out) debe realizarse antes de la 1:00 PM. Si necesitas ingresar antes o salir después, consúltanos disponibilidad para Late Check-out.</p>
+                </div>
+            </div>
+
+            <div class="item-faq">
+                <button class="pregunta-faq">
+                    <span>¿El desayuno está incluido en la tarifa?</span>
+                    <strong class="icono-flecha">+</strong>
+                </button>
+                <div class="respuesta-faq">
+                    <p>¡Sí! Todas nuestras reservas incluyen desayuno tipo americano o típico de la región, preparado con ingredientes orgánicos locales.</p>
+                </div>
+            </div>
+
+            <div class="item-faq">
+                <button class="pregunta-faq">
+                    <span>¿Cuentan con parqueadero y servicio de Wifi?</span>
+                    <strong class="icono-flecha">+</strong>
+                </button>
+                <div class="respuesta-faq">
+                    <p>Ofrecemos parqueadero privado vigilado totalmente gratuito para nuestros huéspedes. Además, contamos con Wifi de alta velocidad de fibra óptica en todas las habitaciones y zonas comunes.</p>
+                </div>
+            </div>
+
+            <div class="item-faq">
+                <button class="pregunta-faq">
+                    <span>¿Se permiten mascotas en el hotel?</span>
+                    <strong class="icono-flecha">+</strong>
+                </button>
+                <div class="respuesta-faq">
+                    <p>Somos un hotel Pet-Friendly. Aceptamos mascotas educadas bajo reserva previa. Se aplica un pequeño cargo adicional por concepto de desinfección de la habitación al salir.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+   
+        <section class="seccion-mapa" id="ubicacion">
+    <div class="contenedor-mapa">
+        <h2 class="titulo-seccion">Un santuario oculto</h2>
+        <p class="subtitulo-seccion">Descubre cómo llegar a nuestro oasis de paz en el corazón del Cauca.</p>
+        
+        <div class="mapa-wrapper">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15935.5398246395!2d-76.4000000!3d3.2500000!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3a812df0c52bb7%3A0x6734cfdb27d5bf6!2sMiranda%2C%20Cauca!5e0!3m2!1ses!2sco!4v1718150000000!5m2!1ses!2sco" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
     </footer>
 
     <!-- Conexión a tu archivo de interactividad -->
+    
+    <div id="modal-habitacion" class="modal-overlay">
+        <div class="modal-content">
+            <button class="cerrar-modal" id="btn-cerrar-modal">&times;</button>
+            
+            <div class="modal-grid">
+                <div class="modal-galeria">
+                    <img id="modal-img" src="" alt="Foto de la habitación">
+                </div>
+                
+                <div class="modal-info">
+                    <h3 id="modal-titulo">Nombre de la Habitación</h3>
+                    <p id="modal-desc">Descripción detallada aquí.</p>
+                    
+                    <h4>Características:</h4>
+                    <ul id="modal-lista-amenities" class="lista-amenities">
+                        </ul>
+                    
+                    <button class="btn-buscar" id="btn-reservar-modal" style="width: 100%; margin-top: 20px;">
+                        Reservar esta habitación
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="app.js"></script>
+    <!-- ================= BLOQUE 5: FOOTER Y CONTACTO ================= -->
+<footer class="footer-principal" id="contacto">
+    <div class="footer-contenido">
+        
+        <!-- Columna 1: Identidad de Marca -->
+        <div class="footer-columna">
+            <h3 class="footer-logo">EcoBoutique</h3>
+            <p>Tu refugio de lujo en perfecta armonía con la naturaleza. Desconecta de la rutina y reconecta con tu esencia en el corazón del Cauca.</p>
+        </div>
+
+        <!-- Columna 2: Navegación Rápida -->
+        <div class="footer-columna">
+            <h4>Explorar</h4>
+            <ul class="footer-enlaces">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#habitaciones">Habitaciones</a></li>
+                <li><a href="#experiencias">Experiencias</a></li>
+                <li><a href="#faq">Preguntas Frecuentes</a></li>
+                <li><a href="#ubicacion">Cómo Llegar</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Información de Contacto y Redes -->
+        <div class="footer-columna">
+            <h4>Contacto</h4>
+            <ul class="footer-contacto">
+                <li>📍 Vía Principal, Miranda, Cauca, Colombia</li>
+                <li>📞 +57 300 123 4567</li>
+                <li>✉️ reservas@ecoboutique.com</li>
+            </ul>
+            
+            <!-- Redes Sociales con Íconos Vectoriales (SVG) -->
+            <div class="footer-redes">
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="#" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Barra inferior de Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 EcoBoutique. Todos los derechos reservados. Diseñado para ofrecer experiencias inolvidables.</p>
+    </div>
+</footer>
+<!-- ================= SCRIPT PARA ANIMACIONES DE SCROLL ================= -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Configuramos nuestro vigilante (Intersection Observer)
+        const opcionesObserver = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Se activa cuando el 15% de la tarjeta ya entró a la pantalla
+        };
+
+        const observer = new IntersectionObserver((entradas, observer) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    // Si la tarjeta entra a la pantalla, le agregamos la clase 'visible'
+                    entrada.target.classList.add('visible');
+                    // Dejamos de vigilarla para que la animación solo ocurra una vez
+                    observer.unobserve(entrada.target); 
+                }
+            });
+        }, opcionesObserver);
+
+        // Buscamos todos los elementos que tengan la clase 'fade-in-up' y los empezamos a vigilar
+        const elementosAAnimar = document.querySelectorAll('.fade-in-up');
+        elementosAAnimar.forEach(elemento => {
+            observer.observe(elemento);
+            // ================= LÓGICA DEL CURSOR PERSONALIZADO =================
+        const cursor = document.getElementById('cursorPremium');
+        
+        // Validamos que estemos en una pantalla de escritorio antes de ejecutar el movimiento
+        if (window.innerWidth >= 1024 && cursor) {
+            
+            // 1. Hacer que el anillo siga al ratón
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // 2. Efecto burbuja al pasar sobre cosas cliqueables
+            // Seleccionamos todo lo que se puede clickear en tu página
+            const elementosClickeables = document.querySelectorAll('a, button, input, label, .tarjeta-extra, .item-faq');
+
+            elementosClickeables.forEach(elemento => {
+                elemento.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover-activo'); // Expande el anillo
+                });
+                
+                elemento.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover-activo'); // Lo devuelve a la normalidad
+                });
+            });
+        }
+        });
+        
+    });
+    
+</script>
+
 </body>
 </html>
